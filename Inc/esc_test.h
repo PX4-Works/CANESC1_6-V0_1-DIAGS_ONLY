@@ -32,3 +32,6 @@ void msDelay( int ms );
 #define GPIO_RPM      GPIO_RPM_PORT, GPIO_PIN_6
 
 #endif
+
+#define PIN(port, pin) pin
+#define PORT(port, pin) port

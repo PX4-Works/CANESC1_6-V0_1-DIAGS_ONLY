@@ -34,24 +34,42 @@ void io_toggle(long delayMs, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
     HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET);
 }
 
+void io_config_out(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+    GPIO_InitTypeDef GPIO_InitStruct;
+
+    GPIO_InitStruct.Pin = GPIO_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+    HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
+}
+
+void io_config_in(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+    GPIO_InitTypeDef GPIO_InitStruct;
+
+    GPIO_InitStruct.Pin = GPIO_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+    HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
+}
+
+
+
 int test(void)
 {
   
     __GPIOE_CLK_ENABLE();
     __GPIOD_CLK_ENABLE();
-    GPIO_InitTypeDef GPIO_InitStruct;
 
-    GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_11;
-    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-    HAL_GPIO_Init(GPIO_TIM1_PORT, &GPIO_InitStruct);
+    io_config_out(GPIO_TIM1_CH1);
+    io_config_out(GPIO_TIM1_CH2);
+    io_config_out(GPIO_TIM1_CH3);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_9;
-    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
-    HAL_GPIO_Init(GPIO_RPM_PORT, &GPIO_InitStruct);
+    io_config_in(GPIO_RPM);
+
 
  
   while(1) {
