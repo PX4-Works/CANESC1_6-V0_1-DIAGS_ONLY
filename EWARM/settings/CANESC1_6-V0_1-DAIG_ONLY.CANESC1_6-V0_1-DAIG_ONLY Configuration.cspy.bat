@@ -19,6 +19,22 @@
 @REM 
 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Kickstart\common\bin\cspybat" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Kickstart\arm\bin\armproc.dll" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Kickstart\arm\bin\armstlink.dll"  %1 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Kickstart\arm\bin\armbat.dll" --flash_loader "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Kickstart\arm\config\flashloader\" --backend -B "--endian=little" "--cpu=ARM7TDMI" "--fpu=None" "--drv_verify_download" "--semihosting" "--device=Default" "--stlink_interface=SWD" "--stlink_reset_strategy=0,0" 
+@echo off 
 
+if not "%1" == "" goto debugFile 
 
+@echo on 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\cspybat" -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.general.xcl" --backend -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.driver.xcl" 
+
+@echo off 
+goto end 
+
+:debugFile 
+
+@echo on 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\cspybat" -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.general.xcl" "--debug_file=%1" --backend -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.driver.xcl" 
+
+@echo off 
+:end

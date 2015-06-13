@@ -93,15 +93,15 @@ int test(void)
  
   while(1) {
 
-   io_toggle(2, GPIO_RC_PWM); // 2 Ms Sync
+   io_toggle(10, GPIO_RC_PWM); // 2 Ms Sync
 
-   int id0 = io_read(GPIO_HWID0) ? 5 : 15;
+   int id0 = (0 == io_read(GPIO_HWID0)) ? 5 : 15;
    io_toggle(id0, GPIO_RC_PWM); // S/B 5 MS
 
-   int id1 = io_read(GPIO_HWID1) ? 5 : 15;
+   int id1 = (0 == io_read(GPIO_HWID1)) ? 5 : 15;
    io_toggle(id1, GPIO_RC_PWM); //  S/B 5 MS
 
-   int m = io_read(GPIO_RPM) ? 1 : 10;
+   int m = (io_read(GPIO_RPM) != 0) ? 1 : 10;
 
     io_toggle(m*100, GPIO_RC_PWM);
     io_toggle(m*100, GPIO_OC_ADJ);
