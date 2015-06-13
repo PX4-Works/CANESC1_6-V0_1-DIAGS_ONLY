@@ -171,6 +171,10 @@
           <file> 55</file>
         </tool>
         <tool>
+          <name>ICCARM</name>
+          <file> 103</file>
+        </tool>
+        <tool>
           <name>__cstat</name>
           <file> 96</file>
         </tool>
