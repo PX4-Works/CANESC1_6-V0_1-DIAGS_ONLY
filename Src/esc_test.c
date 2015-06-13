@@ -60,26 +60,72 @@ void io_config_in(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 
 int test(void)
 {
-  
-    __GPIOE_CLK_ENABLE();
-    __GPIOD_CLK_ENABLE();
 
+    io_config_in(GPIO_PWRGD);
+    io_config_in(GPIO_OCTW);
+    io_config_in(GPIO_FAULT);
+    io_config_out(GPIO_RC_PWM);
+    io_config_out(GPIO_OC_ADJ);
+    io_config_out(GPIO_EN_GATE);
+    io_config_out(GPIO_DC_CAL);
+    io_config_out(GPIO_TIM1_CH1N);
+    io_config_out(GPIO_USART3_RX);
+    io_config_out(GPIO_TIM1_CH2N);
+    io_config_out(GPIO_TIM1_CH3N);
+    io_config_out(GPIO_GAIN);
+    io_config_out(GPIO_USART3_TX);
+    io_config_out(GPIO_RPM);
+    io_config_out(GPIO_LED_RED);
+    io_config_out(GPIO_LED_GREEN);
+    io_config_out(GPIO_LED_BLUE);
     io_config_out(GPIO_TIM1_CH1);
     io_config_out(GPIO_TIM1_CH2);
     io_config_out(GPIO_TIM1_CH3);
-
-    io_config_in(GPIO_RPM);
-
+    io_config_out(GPIO_USB_OTG_FS_DM);
+    io_config_out(GPIO_USB_OTG_FS_DP);
+    io_config_in(GPIO_HWID0);
+    io_config_in(GPIO_HWID1);
+    io_config_out(GPIO_TEST4);
+    io_config_out(GPIO_TEST1);
+    io_config_out(GPIO_TEST2);
+    io_config_out(GPIO_TEST3);
 
  
   while(1) {
-    int m = io_read(GPIO_RPM) ? 1 : 10;
-    io_toggle(m*100, GPIO_TIM1_CH1);
-    io_toggle(m*100, GPIO_TIM1_CH1);
-    io_toggle(m*100, GPIO_TIM1_CH1);
+
+   io_toggle(2, GPIO_RC_PWM); // 2 Ms Sync
+
+   int id0 = io_read(GPIO_HWID0) ? 5 : 15;
+   io_toggle(id0, GPIO_RC_PWM); // S/B 5 MS
+
+   int id1 = io_read(GPIO_HWID1) ? 5 : 15;
+   io_toggle(id1, GPIO_RC_PWM); //  S/B 5 MS
+
+   int m = io_read(GPIO_RPM) ? 1 : 10;
+
+    io_toggle(m*100, GPIO_RC_PWM);
+    io_toggle(m*100, GPIO_OC_ADJ);
+    io_toggle(m*100, GPIO_EN_GATE);
+    io_toggle(m*100, GPIO_DC_CAL);
+    io_toggle(m*100, GPIO_TIM1_CH1N);
+    io_toggle(m*100, GPIO_USART3_RX);
+    io_toggle(m*100, GPIO_TIM1_CH2N);
+    io_toggle(m*100, GPIO_TIM1_CH3N);
+    io_toggle(m*100, GPIO_GAIN);
+    io_toggle(m*100, GPIO_USART3_TX);
+    io_toggle(m*100, GPIO_RPM);
     io_toggle(m*100, GPIO_LED_RED);
     io_toggle(m*100, GPIO_LED_GREEN);
     io_toggle(m*100, GPIO_LED_BLUE);
+    io_toggle(m*100, GPIO_TIM1_CH1);
+    io_toggle(m*100, GPIO_TIM1_CH2);
+    io_toggle(m*100, GPIO_TIM1_CH3);
+    io_toggle(m*100, GPIO_USB_OTG_FS_DM);
+    io_toggle(m*100, GPIO_USB_OTG_FS_DP);
+    io_toggle(m*100, GPIO_TEST4);
+    io_toggle(m*100, GPIO_TEST1);
+    io_toggle(m*100, GPIO_TEST2);
+    io_toggle(m*100, GPIO_TEST3);  
   }
 }
 
