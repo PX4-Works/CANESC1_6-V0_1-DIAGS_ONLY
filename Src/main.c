@@ -115,7 +115,7 @@ int main(void)
   */
   while (1)
   {
-    
+    test();
     
     
   /* USER CODE END WHILE */
@@ -231,9 +231,6 @@ void MX_CAN2_Init(void)
      PB0   ------> TIM1_CH2N
      PB1   ------> TIM1_CH3N
      PB10   ------> USART3_TX
-     PA8   ------> S_TIM1_CH1
-     PA9   ------> S_TIM1_CH2
-     PA10   ------> S_TIM1_CH3
      PA11   ------> USB_OTG_FS_DM
      PA12   ------> USB_OTG_FS_DP
 */
@@ -262,15 +259,17 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA4 PA5 PA6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6;
+  /*Configure GPIO pins : PA4 PA5 PA6 PA8 
+                           PA9 PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_8 
+                          |GPIO_PIN_9|GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA7 PA8 PA9 PA10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
+  /*Configure GPIO pin : PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
