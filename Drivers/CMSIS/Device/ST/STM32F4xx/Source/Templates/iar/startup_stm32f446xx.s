@@ -64,7 +64,6 @@
 
         EXTERN  __iar_program_start
         EXTERN  SystemInit
-        EXTERN  SysTick_HandlerX
         PUBLIC  __vector_table
 
         DATA
@@ -85,7 +84,7 @@ __vector_table
         DCD     DebugMon_Handler          ; Debug Monitor Handler
         DCD     0                         ; Reserved
         DCD     PendSV_Handler            ; PendSV Handler
-        DCD     SysTick_HandlerX           ; SysTick Handler
+        DCD     SysTick_Handler           ; SysTick Handler
 
          ; External Interrupts
         DCD     WWDG_IRQHandler                   ; Window WatchDog                                        
