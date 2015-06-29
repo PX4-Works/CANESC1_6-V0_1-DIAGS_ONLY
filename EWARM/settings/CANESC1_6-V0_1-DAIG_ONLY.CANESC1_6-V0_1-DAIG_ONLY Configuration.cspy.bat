@@ -25,7 +25,7 @@ if not "%1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\cspybat" -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.general.xcl" --backend -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\cspybat" -f "C:\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.general.xcl" --backend -f "C:\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\cspybat" -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.general.xcl" "--debug_file=%1" --backend -f "C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\common\bin\cspybat" -f "C:\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.general.xcl" "--debug_file=%1" --backend -f "C:\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\settings\CANESC1_6-V0_1-DAIG_ONLY.CANESC1_6-V0_1-DAIG_ONLY Configuration.driver.xcl" 
 
 @echo off 
 :end

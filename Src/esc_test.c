@@ -101,7 +101,7 @@ int test(void)
    int id1 = (0 == io_read(GPIO_HWID1)) ? 5 : 15;
    io_toggle(id1, GPIO_RC_PWM); //  S/B 5 MS
 
-   int m = (io_read(GPIO_RPM) != 0) ? 1 : 10;
+   int m = (io_read(GPIO_RPM) != 0) ? 10 : 1;
 
     io_toggle(m*100, GPIO_RC_PWM);
     io_toggle(m*100, GPIO_OC_ADJ);
@@ -114,9 +114,9 @@ int test(void)
     io_toggle(m*100, GPIO_GAIN);
     io_toggle(m*100, GPIO_USART3_TX);
     io_toggle(m*100, GPIO_RPM);
-    io_toggle(m*100, GPIO_LED_RED);
-    io_toggle(m*100, GPIO_LED_GREEN);
-    io_toggle(m*100, GPIO_LED_BLUE);
+    io_toggle(m*1000, GPIO_LED_RED);
+    io_toggle(m*1000, GPIO_LED_GREEN);
+    io_toggle(m*1000, GPIO_LED_BLUE);
     io_toggle(m*100, GPIO_TIM1_CH1);
     io_toggle(m*100, GPIO_TIM1_CH2);
     io_toggle(m*100, GPIO_TIM1_CH3);
