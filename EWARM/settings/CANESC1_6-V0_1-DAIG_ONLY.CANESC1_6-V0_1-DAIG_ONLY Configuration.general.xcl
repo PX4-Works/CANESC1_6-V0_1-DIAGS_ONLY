@@ -2,7 +2,7 @@
 
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\arm\bin\armstlink.dll" 
 
-"C:\Users\david_s5\Desktop\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\CANESC1_6-V0_1-DAIG_ONLY Configuration\Exe\CANESC1_6-V0_1-DAIG_ONLY Configuration.out" 
+"C:\test\CANESC1_6-V0_1-DIAGS_ONLY\EWARM\CANESC1_6-V0_1-DAIG_ONLY Configuration/Exe\CANESC1_6-V0_1-DAIG_ONLY Configuration.out" 
 
 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.2\arm\bin\armbat.dll" 
 
